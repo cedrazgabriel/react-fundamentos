@@ -1,10 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import App from './App'
 
 ReactDOM.render(
-    <h1 id='title'>
-        <span>Olá Julia!!!</span>
-    </h1>,
+    <div id='title'>
+        <App />
+    </div>
+    ,
     document.getElementById('root'),
 )
 
