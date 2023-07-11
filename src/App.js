@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import Post from './Post';
 import Header from './Header';
+import ThemeProvider from './ThemeContext';
+
 
 
 export default function App(){
@@ -10,6 +12,7 @@ export default function App(){
         {id: Math.random(),likes: 15,title: "ENEM Superestimado",subtitle: "Inscrições abertas", read: true},
         {id: Math.random(),likes: 25,title: "Concurso da policia federal",subtitle: "Governo abre 5000 vagas", read: false}
     ])
+
 
     function handleRefresh(){
         setPosts((prevState) => [
@@ -28,8 +31,9 @@ export default function App(){
     }
 
     return (
-        <>   
-           <Header title="Teste Blog">
+        <ThemeProvider>   
+           <Header title="Teste Blog"
+           >
            <h2>Posts da semana</h2>
            <button onClick={handleRefresh}>Atualizar</button>
             </Header>
@@ -41,10 +45,10 @@ export default function App(){
                 <Post
                 key={post.id}
                 post= {post}
-                onRemove = {handleRemovePost}        
+                onRemove = {handleRemovePost}     
                 />
           ))
           }          
-        </>   
+        </ThemeProvider>   
     )
 }
