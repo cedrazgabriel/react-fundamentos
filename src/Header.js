@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Button from './Button'
 
-import styles from './Header.css'
+import styles from './Header.scss'
 
 export default function Header(props){
     return (
