@@ -4,16 +4,13 @@ import Post from './Post';
 import Header from './Header';
 import ThemeProvider from './ThemeContext';
 
-
-
 export default function App(){
     const [posts, setPosts] = useState([
         {id: Math.random(),likes: 32,title: "João foi assaltado",subtitle: "Ipanema continua perigosa", read: false },
         {id: Math.random(),likes: 15,title: "ENEM Superestimado",subtitle: "Inscrições abertas", read: true},
         {id: Math.random(),likes: 25,title: "Concurso da policia federal",subtitle: "Governo abre 5000 vagas", read: false}
     ])
-
-
+    
     function handleRefresh(){
         setPosts((prevState) => [
             ...prevState,
