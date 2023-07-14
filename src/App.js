@@ -6,9 +6,9 @@ import ThemeProvider from './ThemeContext';
 
 export default function App(){
     const [posts, setPosts] = useState([
-        {id: Math.random(),likes: 32,title: "João foi assaltado",subtitle: "Ipanema continua perigosa", read: false },
-        {id: Math.random(),likes: 15,title: "ENEM Superestimado",subtitle: "Inscrições abertas", read: true},
-        {id: Math.random(),likes: 25,title: "Concurso da policia federal",subtitle: "Governo abre 5000 vagas", read: false}
+        {id: Math.random(),likes: 32,title: "João foi assaltado",subtitle: "Ipanema continua perigosa", read: false, removed: true },
+        {id: Math.random(),likes: 15,title: "ENEM Superestimado",subtitle: "Inscrições abertas", read: true, removed: false},
+        {id: Math.random(),likes: 25,title: "Concurso da policia federal",subtitle: "Governo abre 5000 vagas", read: false, removed: false}
     ])
     
     function handleRefresh(){
@@ -22,12 +22,16 @@ export default function App(){
     }
 
     function handleRemovePost(postId){
-        setPosts((prevState)=> (
-            prevState.filter((item) => item.id != postId)
-        ))
+        setPosts((prevState) => prevState.map(post =>
+            post.id === postId ?
+            {
+                ...post,
+                removed:true
+            } : post
+            ))
     }
 
-    return (
+    return ( 
         <ThemeProvider>   
            <Header title="Teste Blog"
            >

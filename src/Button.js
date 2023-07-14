@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 import { ThemeContext } from "./ThemeContext"
 
 export default function Button (props){
-    const {theme, onToggleTheme} = useContext(ThemeContext)
 
+    const { theme }  = useContext(ThemeContext)
+    
     return (
-        <button onClick={onToggleTheme}
+        <button onClick={props.onClick}
         style={
                 {
                 color: theme === "dark" ? '#fff': '#000',
